@@ -7,32 +7,32 @@ import clover from "../../../shared/assets/images/clover.png";
 import { useState } from "react";
 
 export const MongchivePage = () => {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [category, setCategory] = useState<string | null>(null);
 
   const handleClick = (name: string) => {
-    setSelected(name);
+    setCategory(name);
   };
 
   return (
     <Container>
       <Options>
         <Option
-          isSelected={selected === "ghost"}
-          onClick={() => handleClick("ghost")}
+          isSelected={category === "공포"}
+          onClick={() => handleClick("공포")}
         >
           <img src={ghost} />
           <Name>공포</Name>
         </Option>
         <Option
-          isSelected={selected === "dog"}
-          onClick={() => handleClick("dog")}
+          isSelected={category === "개꿈"}
+          onClick={() => handleClick("개꿈")}
         >
           <img src={dog} />
           <Name>개꿈</Name>
         </Option>
         <Option
-          isSelected={selected === "clover"}
-          onClick={() => handleClick("clover")}
+          isSelected={category === "일상"}
+          onClick={() => handleClick("일상")}
         >
           <img src={clover} />
           <Name>일상</Name>
