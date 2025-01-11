@@ -31,6 +31,10 @@ export const router = createBrowserRouter([
         path: "detail/:id",
         element: <Detail />,
       },
+      {
+        path: "success",
+        element: <SuccessPage />,
+      },
     ],
   },
   {
@@ -45,10 +49,6 @@ export const router = createBrowserRouter([
       {
         path: "my",
         element: <MongchivePage />,
-      },
-      {
-        path: "success",
-        element: <SuccessPage />,
       },
       {
         path: "mydreams",
