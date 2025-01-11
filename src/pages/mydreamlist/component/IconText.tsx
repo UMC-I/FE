@@ -15,7 +15,10 @@ export default SmallIconText;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 15px;
+  margin-top: 30px;
 `;
 
 const Text = styled.p`

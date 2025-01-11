@@ -36,9 +36,9 @@ const GetDreamList = async () => {
   }
 };
 
-const GetMyDreamList = async () => {
+const GetMyDreamList = async ({ pageParam }: { pageParam: number }) => {
   try {
-    const response = await axiosInstance.get(`/my-posts`);
+    const response = await axiosInstance.get(`/my-posts?page=${pageParam}`);
     return response.data;
   } catch (error) {
     console.log("꿈 목록 조회 API 연결 실패 에러", error);

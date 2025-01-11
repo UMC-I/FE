@@ -4,6 +4,7 @@ import FortuneIcon from "@shared/images/fortune.svg?react";
 import HorrorIcon from "@shared/images/Horror.svg?react";
 import SmallButton from "./SmallButton";
 import { PatchSecret } from "@shared/apis/dreamAPI";
+import { useState } from "react";
 
 interface IMyDreamPost {
   id: number;
@@ -11,27 +12,28 @@ interface IMyDreamPost {
   title: string;
   open: boolean;
 }
-const handleClick = async (id: number, open: boolean) => {
-  try {
-    const response = await PatchSecret(id, open);
-    return response.data;
-  } catch (error) {
-    console.log("공개 여부 수정 실패 : ", error);
-  }
-};
 
 const MyDream = ({ id, category, title, open }: IMyDreamPost) => {
+  const [isOpen, setIsOpen] = useState(open);
+
+  const handleClick = async () => {
+    try {
+      const newOpenState = !isOpen;
+      const response = await PatchSecret(id, newOpenState);
+      setIsOpen(newOpenState);
+      return response.data;
+    } catch (error) {
+      console.log("공개 여부 수정 실패 : ", error);
+    }
+  };
+
   return (
     <Container>
       {category === "개꿈" && <DogIcon />}
       {category === "공포" && <HorrorIcon />}
       {category === "일상상" && <FortuneIcon />}
       <Title>{title}</Title>
-      <SmallButton
-        text="공개"
-        onClick={() => handleClick(id, open)}
-        active={open}
-      />
+      <SmallButton text="공개" onClick={handleClick} active={open} />
     </Container>
   );
 };

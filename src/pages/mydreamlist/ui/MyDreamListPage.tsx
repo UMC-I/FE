@@ -1,18 +1,12 @@
 import styled from "styled-components";
 import SmallIconText from "../component/IconText";
-import MyDream from "@shared/ui/MyDream";
+import MyDreamList from "../component/MydreamList";
 
 export const MyDreamListPage = () => {
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const handleClick = (name: string) => {
-    setSelected(name);
-  };
-
   return (
     <Container>
       <SmallIconText />
-      <MyDream />
+      <MyDreamList />
     </Container>
   );
 };
