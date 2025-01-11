@@ -4,23 +4,29 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 function KakaoRedirect() {
+  const code = new URL(window.location.href).searchParams.get("code");
   const navigate = useNavigate();
 
   const { mutate: postMutation } = useMutation({
     mutationFn: PostLogin,
-    onSuccess: () => {
-      console.log("로그인 성공");
+    onSuccess: (data) => {
+      console.log("로그인 성공:", data);
       navigate("/home");
     },
-    onError: () => {
-      console.log("로그인 실패");
+    onError: (error) => {
+      console.log("로그인 실패:", error);
       navigate("/");
     },
   });
 
   useEffect(() => {
-    postMutation();
-  }, [postMutation]);
+    if (code) {
+      postMutation();
+    } else {
+      console.log("인증 코드가 없습니다.");
+      navigate("/");
+    }
+  }, [code, navigate, postMutation]);
 
   return <div>로그인 중입니다...</div>;
 }
