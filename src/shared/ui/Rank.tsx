@@ -47,6 +47,7 @@ const Container = styled.div`
   align-items: center;
   gap: 5px;
   padding: 0 10px;
+  cursor: pointer;
 `;
 
 const Title = styled.p`

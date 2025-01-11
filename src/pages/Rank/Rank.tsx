@@ -14,7 +14,7 @@ function Rank() {
 
   const handleClick = () => {
     //해몽 페이지 이동 변경
-    navigate("/");
+    navigate("/interpret");
   };
 
   const {
@@ -37,7 +37,7 @@ function Rank() {
 
   return (
     <Container>
-      <img src={left} />
+      <Img src={left} onClick={() => navigate("/home")} />
       <SliderItemWrapper>
         <Title>{rankDetail.success.title}</Title>
         <Content>{rankDetail.success.content}</Content>
@@ -133,6 +133,10 @@ const Container = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   overflow-y: auto;
+`;
+
+const Img = styled.img`
+  cursor: pointer;
 `;
 
 export default Rank;

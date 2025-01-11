@@ -5,8 +5,11 @@ import { useMutation } from "@tanstack/react-query";
 import { PostDreamMeaning } from "@shared/apis/dreamAPI";
 import { useEffect } from "react";
 import Loading from "../components/Loading";
+import left from "../../../shared/assets/icon/left.png";
+import { useNavigate } from "react-router";
 
 const InterpretationPage = () => {
+  const navigate = useNavigate();
   // Mutation 정의
   const mutation = useMutation({
     mutationFn: () => PostDreamMeaning(2),
@@ -29,6 +32,7 @@ const InterpretationPage = () => {
 
   return (
     <Wrapper>
+      <BackImg src={left} onClick={() => navigate("/mydreams")} />
       <Img src={BigGhost} />
       <GptResults result={mutation.data?.content} />
     </Wrapper>
@@ -45,6 +49,9 @@ const Img = styled.img<{ src: string }>`
   margin-top: 80px;
   width: 350px;
   height: 350px;
+`;
+const BackImg = styled.img`
+  cursor: pointer;
 `;
 
 export default InterpretationPage;
