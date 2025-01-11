@@ -1,5 +1,10 @@
+import { useState } from "react";
 import styled from "styled-components";
 const SliderItem = () => {
+  const [active, setActive] = useState(false);
+  const handleOnClick = () => {
+    setActive((prev) => !prev);
+  };
   return (
     <SliderItemWrapper>
       <Title>구름 속 칼국수</Title>
@@ -11,7 +16,7 @@ const SliderItem = () => {
         합격이다"라며 나를 삼키더니 갑자기 경적 소리가 들렸다. 눈을 떠보니 알람
         시계가 울리고 있었다. 와, 이게 무슨 꿈이야?
       </Content>
-      <AgreeButton>
+      <AgreeButton active={active} onClick={handleOnClick}>
         <Emoji>😮</Emoji>와 진짜 개꿈이네요!
       </AgreeButton>
     </SliderItemWrapper>
@@ -37,7 +42,7 @@ const Content = styled.div`
   height: 240px;
 `;
 
-const AgreeButton = styled.button`
+const AgreeButton = styled.button<{ active: boolean }>`
   width: 155px;
   height: 40px;
   border: 0.5px solid #b2b2b2;
@@ -49,7 +54,11 @@ const AgreeButton = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+  background-color: ${(props) => (props.active ? "#E8EBFA" : "#fff")};
+  box-shadow: ${(props) =>
+    props.active
+      ? "inset 0px 2px 4px rgba(0, 0, 0, 0.2)"
+      : "inset 0px 0px 2px rgba(0, 0, 0, 0.2)"};
 `;
 
 const Emoji = styled.div`
