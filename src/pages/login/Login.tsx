@@ -6,6 +6,8 @@ function Login() {
     import.meta.env.VITE_KAKAO_REST_API_KEY
   }&redirect_uri=${import.meta.env.VITE_KAKAO_REDIRECT_URI}&response_type=code`;
 
+  // const link = `https://kauth.kakao.com/oauth/authorize?client_id=99d88dd5b6ebeb003f27d2f3819c86d8&redirect_uri=http://umc.mongddang.p-e.kr:3000/oauth2/callback/kakao&response_type=code`;
+
   const loginHandler = () => {
     window.location.href = link;
   };

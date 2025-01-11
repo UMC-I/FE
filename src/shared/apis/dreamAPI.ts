@@ -1,15 +1,16 @@
+import axiosHeader from "./axiosHeader";
 import axiosInstance from "./axiosInstance";
 import { TPost } from "@shared/types/dreamType";
 
 const PostLogin = async () => {
-  const response = await axiosInstance.post("/oauth2/login/kakao");
+  const response = await axiosHeader.post("/oauth2/login/kakao");
 
   //console.log("로그인 response : ", response);
   return response.data;
 };
 
 const PostWriting = async (data: TPost) => {
-  const response = await axiosInstance.post("/users/posts", {
+  const response = await axiosHeader.post("/users/posts", {
     content: data.content,
     title: data.title,
     category: data.category,
@@ -20,7 +21,7 @@ const PostWriting = async (data: TPost) => {
 
 const GetRanking = async () => {
   try {
-    const response = await axiosInstance.get("/posts/rank");
+    const response = await axiosHeader.get("/posts/rank");
     return response.data;
   } catch (error) {
     console.log("Ranking API 연결 실패 에러", error);

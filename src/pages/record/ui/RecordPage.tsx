@@ -8,6 +8,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { PostWriting } from "@shared/apis/dreamAPI";
+import { useMutation } from "@tanstack/react-query";
 
 export const RecordPage = () => {
   const navigate = useNavigate();
@@ -40,6 +42,21 @@ export const RecordPage = () => {
     setValue("category", name, { shouldValidate: true });
   };
 
+  const {
+    mutate: postMutation,
+    // isError,
+    // isPending,
+  } = useMutation({
+    mutationFn: PostWriting,
+    onSuccess: () => {
+      console.log("꿈 생성 성공");
+      navigate("/success");
+    },
+    onError: () => {
+      console.log("꿈 생성 실패");
+    },
+  });
+
   const onSubmit = (data: {
     content: string;
     title: string;
@@ -47,7 +64,7 @@ export const RecordPage = () => {
   }) => {
     trigger();
     console.log(data);
-    navigate("/");
+    postMutation(data);
   };
 
   const formValues = watch();
