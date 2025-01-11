@@ -18,7 +18,7 @@ const BottomNavigation = () => {
     <Wrapper>
       <BottomLink
         onClick={() => setActiveTab(1)}
-        to="/"
+        to="/home"
         $active={activeTab === Tab.HOME}
       >
         <IcHome $active={activeTab === Tab.HOME} />
@@ -47,10 +47,9 @@ const BottomNavigation = () => {
 export default BottomNavigation;
 
 const Wrapper = styled.nav`
-  position: fixed;
   bottom: 0;
   height: 100px;
-  width: 100vw;
+  width: 100%;
   max-width: 440px;
   background: linear-gradient(
     to bottom,
