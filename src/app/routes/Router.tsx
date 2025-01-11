@@ -8,6 +8,7 @@ import MainLayout from "@app/layout/MainLayout";
 import SuccessPage from "@pages/success/SuccessPage";
 import { MyDreamListPage } from "@pages/mydreamlist/ui/MyDreamListPage";
 import Rank from "@pages/Rank/Rank";
+import Detail from "@pages/detail/Detail";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "rank/:id",
         element: <Rank />,
+      },
+      {
+        path: "detail/:id",
+        element: <Detail />,
       },
     ],
   },
