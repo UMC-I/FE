@@ -4,13 +4,18 @@ import Button from "@shared/ui/Button";
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { GetDreamDetail } from "@shared/apis/dreamAPI";
+import OneIcon from "@shared/images/ep_medal.svg?react";
+import TwoIcon from "@shared/images/ep_medal_2.svg?react";
+import ThreeIcon from "@shared/images/ep_medal_3.svg?react";
+import { useRankContext } from "../../context/RankContext";
 
 function Detail() {
+  const { isRank } = useRankContext();
   const navigate = useNavigate();
   const { id } = useParams();
 
   const postId = Number(id);
-  console.log("id값:", postId);
+  console.log("isRank값:", isRank);
 
   const handleClick = () => {
     //해몽 페이지 이동 변경
@@ -39,6 +44,9 @@ function Detail() {
     <Container>
       <img src={left} />
       <SliderItemWrapper>
+        {isRank === 1 && <OneIcon />}
+        {isRank === 2 && <TwoIcon />}
+        {isRank === 3 && <ThreeIcon />}
         <Title>{rankDetail.success.title}</Title>
         <Content>{rankDetail.success.content}</Content>
         <AgreeButton>
