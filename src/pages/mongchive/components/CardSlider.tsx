@@ -1,11 +1,14 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // 기본 Swiper 스타일
-import "swiper/css/effect-cards"; // EffectCards 스타일
-import { EffectCards } from "swiper/modules";
-import styled from "styled-components";
-import SliderItem from "./SliderItem";
-import { useQuery } from "@tanstack/react-query";
-import { GetDreamList } from "@shared/apis/dreamAPI";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// type delcaration 알아봐야함.
+
+// import 'swiper/css';
+// import 'swiper/css/effect-cards'; // EffectCards 스타일
+import { EffectCards } from 'swiper/modules';
+import styled from 'styled-components';
+import SliderItem from './SliderItem';
+import { useQuery } from '@tanstack/react-query';
+import { GetDreamList } from '@shared/apis/dreamAPI';
 
 // Swiper 스타일
 const StyledSwiper = styled(Swiper)`
@@ -46,7 +49,7 @@ export default function CardSlider({ category }: { category: string }) {
     isError,
   } = useQuery({
     queryFn: () => GetDreamList(category),
-    queryKey: ["category", category],
+    queryKey: ['category', category],
   });
 
   // 데이터가 로딩 중일 때와 오류가 있을 때 처리
@@ -61,15 +64,15 @@ export default function CardSlider({ category }: { category: string }) {
   return (
     <>
       <StyledSwiper
-        effect={"cards"}
+        effect={'cards'}
         grabCursor={true}
         modules={[EffectCards]} // EffectCards 모듈 사용
-        className="mySwiper"
+        className='mySwiper'
         cardsEffect={{
           slideShadows: false, // 카드에 그림자 추가
         }}
       >
-        {dreams["success"]["success"]?.map(
+        {dreams['success']['success']?.map(
           (dream: { postId: number; title: string; content: string }) => (
             <StyledSwiperSlide key={dream.postId}>
               <SliderItem dream={dream} category={category} />
