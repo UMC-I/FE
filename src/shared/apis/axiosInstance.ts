@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://umc.mongddang.p-e.kr:3000",
+  baseURL: "https://umc.mongddang.p-e.kr/",
   withCredentials: true,
 });
 

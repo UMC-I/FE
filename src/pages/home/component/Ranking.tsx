@@ -9,7 +9,7 @@ import { TRank } from "@shared/types/dreamType";
 const Ranking = () => {
   const navigate = useNavigate();
   const handleClick = (id: number) => {
-    navigate(`/posts/${id}`);
+    navigate(`/rank/${id}`);
   };
   const {
     data: Ranks,

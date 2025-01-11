@@ -10,6 +10,7 @@ function Rank() {
   const { id } = useParams();
 
   const postId = Number(id);
+  console.log("id값:", postId);
 
   const handleClick = () => {
     //해몽 페이지 이동 변경

@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
         element: <RecordPage />,
       },
       {
-        path: "rank",
+        path: "rank/:id",
         element: <Rank />,
       },
     ],
