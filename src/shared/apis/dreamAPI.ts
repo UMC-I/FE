@@ -82,12 +82,11 @@ const PatchLikeUp = async (id: number, status: boolean) => {
   }
 };
 
-// const PostDreamMeaning = async (id: number) => {
-//   const response = await axiosInstance.post(`/posts/${id}/description`);
-
-//   //console.log("로그인 response : ", response);
-//   return response.data;
-// };
+const PostDreamMeaning = async (id: number) => {
+  const response = await axiosInstance.post(`/users/posts/${id}/description`);
+  console.log("해몽 API 응답 : ", response.data.success.success);
+  return response.data.success.success;
+};
 
 export {
   PostLogin,
@@ -98,4 +97,5 @@ export {
   GetDreamDetail,
   PatchLikeUp,
   PatchSecret,
+  PostDreamMeaning,
 };

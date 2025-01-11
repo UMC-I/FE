@@ -7,6 +7,7 @@ import AuthLayout from "@app/layout/AuthLayout";
 import MainLayout from "@app/layout/MainLayout";
 import SuccessPage from "@pages/success/SuccessPage";
 import { MyDreamListPage } from "@pages/mydreamlist/ui/MyDreamListPage";
+import InterpretationPage from "@pages/interpretation/ui/InterpretationPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "record",
         element: <RecordPage />,
+      },
+      {
+        path: "interpret",
+        element: <InterpretationPage />,
       },
     ],
   },

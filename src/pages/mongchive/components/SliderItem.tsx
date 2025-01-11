@@ -15,11 +15,9 @@ const SliderItem = ({ dream, category }: SliderItemProps) => {
 
   console.log("dream", dream);
 
-  // useMutation으로 API 요청 처리
   const mutation = useMutation({
     mutationFn: () => PatchLikeUp(dream.postId, active),
     onSuccess: () => {
-      // 성공 시 상태 업데이트
       setActive((prev) => !prev);
     },
     onError: (error) => {
