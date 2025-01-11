@@ -5,7 +5,9 @@ import styled from "styled-components";
 export default function RootLayout() {
   return (
     <Wrapper>
-      <Outlet />
+      <div style={{ flex: 1 }}>
+        <Outlet />
+      </div>
       <BottomNavigation />
     </Wrapper>
   );
