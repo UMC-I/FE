@@ -70,8 +70,8 @@ export default function CardSlider({ category }: { category: string }) {
         }}
       >
         {dreams["success"]["success"]?.map(
-          (dream: { id: number; title: string; content: string }) => (
-            <StyledSwiperSlide key={dream.id}>
+          (dream: { postId: number; title: string; content: string }) => (
+            <StyledSwiperSlide key={dream.postId}>
               <SliderItem dream={dream} category={category} />
             </StyledSwiperSlide>
           )

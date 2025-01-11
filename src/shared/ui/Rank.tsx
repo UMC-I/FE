@@ -3,6 +3,7 @@ import HeartIcon from "../images/heart.svg?react";
 import OneIcon from "../images/ep_medal.svg?react";
 import TwoIcon from "../images/ep_medal_2.svg?react";
 import ThreeIcon from "../images/ep_medal_3.svg?react";
+import { useRankContext } from "../../context/RankContext";
 
 interface IRankProps {
   rank: number;
@@ -12,8 +13,14 @@ interface IRankProps {
 }
 
 const Rank = ({ rank, title, onClick, likedCount }: IRankProps) => {
+  const { setIsRank } = useRankContext();
+  const handleClick = () => {
+    setIsRank(rank);
+    onClick();
+  };
+
   return (
-    <Container onClick={onClick}>
+    <Container onClick={handleClick}>
       {rank === 1 && <OneIcon />}
       {rank === 2 && <TwoIcon />}
       {rank === 3 && <ThreeIcon />}

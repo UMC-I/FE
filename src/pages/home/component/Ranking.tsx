@@ -26,12 +26,12 @@ const Ranking = () => {
   if (isError) {
     return <p>에러</p>;
   }
-
+  console.log(Ranks);
   return (
     <Container>
       <Title>레전드 꿈수저들</Title>
       <RankList>
-        {Ranks.map((dream: TRank, index: number) => (
+        {Ranks?.success.success.map((dream: TRank, index: number) => (
           <Rank
             key={dream.postId}
             rank={index + 1}

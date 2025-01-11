@@ -7,26 +7,29 @@ interface IButtonProps {
 }
 
 const SmallButton = ({ text, active, onClick }: IButtonProps) => {
-  const color = active ? "#61646B" : "#B6B6B6";
   return (
-    <ButtonWrapper onClick={onClick} color={color}>
+    <ButtonWrapper onClick={onClick} active={active}>
       {text}
     </ButtonWrapper>
   );
 };
 
-const ButtonWrapper = styled.button<{ color: string }>`
-  width: 55px;
-  height: 35px;
-  border-radius: 10px;
-  border: 1px solid ${({ color }) => color};
-  color: ${({ color }) => color};
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 24px;
-  cursor: pointer;
-`;
-
 export default SmallButton;
+
+interface ButtonWrapperProps {
+  active: boolean;
+}
+
+const ButtonWrapper = styled.button<ButtonWrapperProps>`
+  background: none;
+  border: none;
+  color: ${({ active }) => (active ? "#61646B" : "#B6B6B6")};
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 4px;
+
+  &:hover {
+    color: ${({ active }) => (active ? "#50545A" : "#A6A6A6")};
+  }
+`;
