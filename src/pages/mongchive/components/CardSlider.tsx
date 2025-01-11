@@ -8,7 +8,8 @@ import SliderItem from "./SliderItem";
 
 // Swiper 스타일
 const StyledSwiper = styled(Swiper)`
-  width: 80%;
+  margin-top: 30px;
+  width: 100%;
   height: 528px; /* 슬라이드 높이 */
   background-color: #fff;
   border-radius: 10px; /* 슬라이드 테두리 둥글게 */

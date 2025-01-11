@@ -12,7 +12,7 @@ export const MongchivePage = () => {
   const handleClick = (name: string) => {
     setSelected(name);
   };
-  
+
   return (
     <Container>
       <Options>
@@ -40,7 +40,6 @@ export const MongchivePage = () => {
       </Options>
       <CardSlider />
     </Container>
-    
   );
 };
 
@@ -83,4 +82,3 @@ const Container = styled.div`
   width: 100%;
   height: auto;
 `;
-
