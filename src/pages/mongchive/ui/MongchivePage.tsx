@@ -1,3 +1,5 @@
+import CardSlider from "../components/CardSlider";
+
 import styled from "styled-components";
 import ghost from "../../../shared/assets/images/ghost.png";
 import dog from "../../../shared/assets/images/dog.png";
@@ -10,7 +12,7 @@ export const MongchivePage = () => {
   const handleClick = (name: string) => {
     setSelected(name);
   };
-  
+
   return (
     <Container>
       <Options>
@@ -36,6 +38,7 @@ export const MongchivePage = () => {
           <Name>일상</Name>
         </Option>
       </Options>
+      <CardSlider />
     </Container>
   );
 };
