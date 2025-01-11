@@ -9,3 +9,10 @@ export type TRank = {
   title: string;
   likes: number;
 };
+
+export type TMyDream = {
+  id: number;
+  title: string;
+  open: boolean;
+  category: string;
+};
