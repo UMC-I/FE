@@ -52,8 +52,8 @@ export const RecordPage = () => {
       console.log("꿈 생성 성공");
       navigate("/success");
     },
-    onError: () => {
-      console.log("꿈 생성 실패");
+    onError: (error) => {
+      console.log("꿈 생성 실패 : ", error);
     },
   });
 

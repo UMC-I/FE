@@ -15,6 +15,7 @@ const PostWriting = async (data: TPost) => {
     title: data.title,
     category: data.category,
   });
+  console.log("api에 전달할 data", data);
   //console.log(" 회원가입 API 응답 : ", response.data);
   return response.data;
 };

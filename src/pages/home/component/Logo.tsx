@@ -1,18 +1,24 @@
 import styled from "styled-components";
 
 const Logo = () => {
-  return <Title>몽땅</Title>;
+  return (
+    <Title>
+      <Span>몽</Span>땅
+    </Title>
+  );
 };
 
 export default Logo;
 
 const Title = styled.p`
-  color: #6276d9;
+  color: #000;
   text-align: center;
-  font-size: 36px;
+  font-size: 32px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 24px; /* 66.667% */
-
+  font-weight: 700;
+  line-height: 24px; /* 75% */
   margin-top: 50px;
+`;
+const Span = styled.span`
+  color: #6276d9;
 `;

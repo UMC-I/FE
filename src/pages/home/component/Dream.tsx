@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Dream = () => {
   const navigate = useNavigate();
   return (
-    <Container onClick={() => navigate("/")}>
+    <Container onClick={() => navigate("/my")}>
       <DreamIcon />
     </Container>
   );
