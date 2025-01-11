@@ -6,6 +6,7 @@ import { MongchivePage } from "@pages/mongchive/ui/MongchivePage";
 import AuthLayout from "@app/layout/AuthLayout";
 import MainLayout from "@app/layout/MainLayout";
 import SuccessPage from "@pages/success/SuccessPage";
+import { MyDreamListPage } from "@pages/mydreamlist/ui/MyDreamListPage";
 import Rank from "@pages/Rank/Rank";
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "success",
         element: <SuccessPage />,
+      },
+      {
+        path: "mydreams",
+        element: <MyDreamListPage />,
       },
     ],
   },

@@ -4,11 +4,12 @@ import Button from "@shared/ui/Button";
 import { useNavigate, useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { GetDreamDetail } from "@shared/apis/dreamAPI";
-// import { useParams } from 'react-router-dom';
 
 function Rank() {
   const navigate = useNavigate();
-  //   const params = useParams();
+  const { id } = useParams();
+
+  const postId = Number(id);
 
   const handleClick = () => {
     //해몽 페이지 이동 변경
