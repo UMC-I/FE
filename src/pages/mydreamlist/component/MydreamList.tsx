@@ -33,7 +33,7 @@ const MyDreamList = () => {
             <MyDream
               key={dream.id}
               {...dream}
-              onClick={() => navigate("/detail/:id")}
+              onClick={() => navigate(`/detail/:${dream.id}`)}
             />
           );
         });
