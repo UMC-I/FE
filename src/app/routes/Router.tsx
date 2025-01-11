@@ -1,17 +1,38 @@
-import { createBrowserRouter } from 'react-router';
-
-import { RootLayout } from '@app/layout';
+import { createBrowserRouter } from "react-router";
+import Login from "@pages/login/Login";
 import { HomePage } from "@pages/home";
+import { RecordPage } from "@pages/record/ui/RecordPage";
+import { MongchivePage } from "@pages/mongchive/ui/MongchivePage";
+import AuthLayout from "@app/layout/AuthLayout";
+import MainLayout from "@app/layout/MainLayout";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    element: <RootLayout />,
+    path: "/",
+    element: <AuthLayout />,
     children: [
       {
         index: true,
-        element: <HomePage/>,
-      }
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        path: "home",
+        element: <HomePage />,
+      },
+      {
+        path: "record",
+        element: <RecordPage />,
+      },
+      {
+        path: "my",
+        element: <MongchivePage />,
+      },
     ],
   },
 ]);
