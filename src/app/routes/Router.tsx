@@ -7,6 +7,7 @@ import AuthLayout from "@app/layout/AuthLayout";
 import MainLayout from "@app/layout/MainLayout";
 import SuccessPage from "@pages/success/SuccessPage";
 import { MyDreamListPage } from "@pages/mydreamlist/ui/MyDreamListPage";
+import InterpretationPage from "@pages/interpretation/ui/InterpretationPage";
 import Rank from "@pages/Rank/Rank";
 import Detail from "@pages/detail/Detail";
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "record",
         element: <RecordPage />,
+      },
+      {
+        path: "interpret",
+        element: <InterpretationPage />,
       },
       {
         path: "rank/:id",
