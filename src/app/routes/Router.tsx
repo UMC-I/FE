@@ -15,6 +15,10 @@ export const router = createBrowserRouter([
         index: true,
         element: <Login />,
       },
+      {
+        path: "record",
+        element: <RecordPage />,
+      },
     ],
   },
   {
@@ -25,10 +29,7 @@ export const router = createBrowserRouter([
         path: "home",
         element: <HomePage />,
       },
-      {
-        path: "record",
-        element: <RecordPage />,
-      },
+
       {
         path: "my",
         element: <MongchivePage />,

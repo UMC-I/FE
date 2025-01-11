@@ -10,6 +10,7 @@ export const MongchivePage = () => {
   const handleClick = (name: string) => {
     setSelected(name);
   };
+  
   return (
     <Container>
       <Options>
