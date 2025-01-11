@@ -80,7 +80,7 @@ export const RecordPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <Container>
-        <img src={left} />
+        <Img src={left} onClick={() => navigate("/home")} />
         <Info>
           꿈에서 깨어난 지금,{"\n"} 그 순간을 조용히 꾹 눌러 담아볼까요?
         </Info>
@@ -250,4 +250,8 @@ const Container = styled.div`
   padding-left: 30px;
   padding-right: 30px;
   overflow-y: auto;
+`;
+
+const Img = styled.img`
+  cursor: pointer;
 `;
