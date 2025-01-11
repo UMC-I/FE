@@ -1,3 +1,4 @@
+import BottomNavigation from "@shared/ui/BottomNavigation";
 import { Outlet } from "react-router";
 import styled from "styled-components";
 
@@ -5,6 +6,7 @@ export default function RootLayout() {
   return (
     <Wrapper>
       <Outlet />
+      <BottomNavigation />
     </Wrapper>
   );
 }
