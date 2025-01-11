@@ -1,5 +1,9 @@
-import { GlobalStyle } from './styles';
-import { QueryProvider, AppThemeProvider, AppRouterProvider } from "./providers";
+import { GlobalStyle } from "./styles";
+import {
+  QueryProvider,
+  AppThemeProvider,
+  AppRouterProvider,
+} from "./providers";
 
 function App() {
   return (
