@@ -5,6 +5,7 @@ import { RecordPage } from "@pages/record/ui/RecordPage";
 import { MongchivePage } from "@pages/mongchive/ui/MongchivePage";
 import AuthLayout from "@app/layout/AuthLayout";
 import MainLayout from "@app/layout/MainLayout";
+import SuccessPage from "@pages/success/SuccessPage";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "my",
         element: <MongchivePage />,
+      },
+      {
+        path: "success",
+        element: <SuccessPage />,
       },
     ],
   },
