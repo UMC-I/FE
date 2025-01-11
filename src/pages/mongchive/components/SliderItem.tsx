@@ -1,23 +1,55 @@
+import { PatchLikeUp } from "@shared/apis/dreamAPI";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import styled from "styled-components";
-const SliderItem = () => {
+interface SliderItemProps {
+  dream: {
+    postId: number;
+    title: string;
+    content: string;
+  };
+  category: string;
+}
+const SliderItem = ({ dream, category }: SliderItemProps) => {
   const [active, setActive] = useState(false);
+
+  console.log("dream", dream);
+
+  // useMutation으로 API 요청 처리
+  const mutation = useMutation({
+    mutationFn: () => PatchLikeUp(dream.postId, active),
+    onSuccess: () => {
+      // 성공 시 상태 업데이트
+      setActive((prev) => !prev);
+    },
+    onError: (error) => {
+      console.log("좋아요 API 실패:", error);
+    },
+  });
+
   const handleOnClick = () => {
-    setActive((prev) => !prev);
+    mutation.mutate();
   };
   return (
     <SliderItemWrapper>
-      <Title>구름 속 칼국수</Title>
-      <Content>
-        구름 위에서 칼국수를 만드는 꿈을 꿨다. 구름을 밀가루처럼 반죽해 칼로
-        썰었더니 진짜 면발이 되었다. 국물은 무지개에서 짜내고, 별똥별을 다듬어
-        고명을 올렸다. 그런데 갑자기 구름이 녹아내리면서 아래로 떨어졌고,
-        바닥에는 거대한 수저를 든 고래가 기다리고 있었다. 고래는 "너의 칼국수는
-        합격이다"라며 나를 삼키더니 갑자기 경적 소리가 들렸다. 눈을 떠보니 알람
-        시계가 울리고 있었다. 와, 이게 무슨 꿈이야?
-      </Content>
-      <AgreeButton active={active} onClick={handleOnClick}>
-        <Emoji>😮</Emoji>와 진짜 개꿈이네요!
+      <Title>{dream.title}</Title>
+      <Content>{dream.content}</Content>
+      <AgreeButton active={active} onClick={handleOnClick} category={category}>
+        {category === "공포" && (
+          <>
+            <Emoji>😱</Emoji>다리가 후덜덜...
+          </>
+        )}
+        {category === "개꿈" && (
+          <>
+            <Emoji>😮</Emoji>와 진짜 개꿈이네요!
+          </>
+        )}
+        {category === "일상" && (
+          <>
+            <Emoji>🤩</Emoji>영화 한 편 뚝딱!
+          </>
+        )}
       </AgreeButton>
     </SliderItemWrapper>
   );
@@ -42,7 +74,7 @@ const Content = styled.div`
   height: 240px;
 `;
 
-const AgreeButton = styled.button<{ active: boolean }>`
+const AgreeButton = styled.button<{ active: boolean; category: string }>`
   width: 155px;
   height: 40px;
   border: 0.5px solid #b2b2b2;
