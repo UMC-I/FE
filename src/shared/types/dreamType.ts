@@ -3,3 +3,9 @@ export type TPost = {
   content: string;
   category: string;
 };
+
+export type TRank = {
+  postId: number;
+  title: string;
+  likes: number;
+};
