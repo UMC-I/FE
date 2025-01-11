@@ -34,7 +34,7 @@ const BottomNavigation = () => {
       </BottomLink>
       <BottomLink
         onClick={() => setActiveTab(3)}
-        to="/my"
+        to="/mydreams"
         $active={activeTab === Tab.MY}
       >
         <IcStar $active={activeTab === Tab.MY} />
