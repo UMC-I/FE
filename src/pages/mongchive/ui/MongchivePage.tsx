@@ -7,7 +7,7 @@ import clover from "../../../shared/assets/images/clover.png";
 import { useState } from "react";
 
 export const MongchivePage = () => {
-  const [category, setCategory] = useState<string | null>(null);
+  const [category, setCategory] = useState<string>("일상");
 
   const handleClick = (name: string) => {
     setCategory(name);
@@ -38,7 +38,7 @@ export const MongchivePage = () => {
           <Name>일상</Name>
         </Option>
       </Options>
-      <CardSlider />
+      <CardSlider category={category} />
     </Container>
   );
 };

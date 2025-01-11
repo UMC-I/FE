@@ -4,6 +4,8 @@ import "swiper/css/effect-cards"; // EffectCards 스타일
 import { EffectCards } from "swiper/modules";
 import styled from "styled-components";
 import SliderItem from "./SliderItem";
+import { useQuery } from "@tanstack/react-query";
+import { GetDreamList } from "@shared/apis/dreamAPI";
 
 // Swiper 스타일
 const StyledSwiper = styled(Swiper)`
@@ -36,7 +38,26 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     background-color: #fdfdfd; /* 아주 살짝 어두운 흰색 */
   }
 `;
-export default function CardSlider() {
+
+export default function CardSlider({ category }: { category: string }) {
+  const {
+    data: dreams,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryFn: () => GetDreamList(category),
+    queryKey: ["category", category],
+  });
+
+  // 데이터가 로딩 중일 때와 오류가 있을 때 처리
+  if (isLoading) {
+    return <div>Loading...</div>; // 로딩 중 화면
+  }
+
+  if (isError) {
+    return <div>Error occurred while fetching data</div>; // 에러 화면
+  }
+
   return (
     <>
       <StyledSwiper
@@ -48,17 +69,13 @@ export default function CardSlider() {
           slideShadows: false, // 카드에 그림자 추가
         }}
       >
-        <StyledSwiperSlide>
-          <SliderItem />
-        </StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 2</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 3</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 4</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 5</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 6</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 7</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 8</StyledSwiperSlide>
-        <StyledSwiperSlide>Slide 9</StyledSwiperSlide>
+        {dreams["success"]["success"]?.map(
+          (dream: { id: number; title: string; content: string }) => (
+            <StyledSwiperSlide key={dream.id}>
+              <SliderItem dream={dream} category={category} />
+            </StyledSwiperSlide>
+          )
+        )}
       </StyledSwiper>
     </>
   );
