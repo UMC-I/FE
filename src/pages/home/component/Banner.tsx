@@ -1,7 +1,11 @@
 import styled from "styled-components";
-
+import Banner_1 from "../../../shared/images/Property 1=1.png";
 const Banner = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <img src={Banner_1} />
+    </Container>
+  );
 };
 
 export default Banner;

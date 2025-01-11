@@ -11,9 +11,10 @@ interface IMyDreamPost {
   category: string;
   title: string;
   open: boolean;
+  onClick: () => void;
 }
 
-const MyDream = ({ id, category, title, open }: IMyDreamPost) => {
+const MyDream = ({ id, category, title, open, onClick }: IMyDreamPost) => {
   const [isOpen, setIsOpen] = useState(open);
 
   const handleClick = async () => {
@@ -28,7 +29,7 @@ const MyDream = ({ id, category, title, open }: IMyDreamPost) => {
   };
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       {category === "개꿈" && <DogIcon />}
       {category === "공포" && <HorrorIcon />}
       {category === "일상상" && <FortuneIcon />}
