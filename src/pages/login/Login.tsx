@@ -13,8 +13,11 @@ function Login() {
   };
   return (
     <Container>
-      <div>몽땅</div>
-      <Short>니꿈내꿈</Short>
+      <Logo>
+        <Text color={"#6276D9"}>몽</Text>
+        <Text color={"black"}>땅</Text>
+      </Logo>
+      <Short>니꿈내꿈 夢땅 모여라 !</Short>
       <Box>
         <Line />
         <LoginText>간편 로그인</LoginText>
@@ -35,7 +38,20 @@ function Login() {
     </Container>
   );
 }
-
+const Text = styled.div<{ color: string }>`
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0em;
+  text-align: center;
+  color: ${(props) => props.color};
+`;
+const Logo = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 const LoginButtons = styled.button`
   display: flex;
   justify-content: center;
@@ -60,7 +76,7 @@ const Box = styled.div`
 `;
 
 const LoginText = styled.div`
-  color: #e4e4e4;
+  color: #6276d9;
   font-family: Pretendard;
   font-size: 10px;
   font-style: normal;
@@ -69,16 +85,16 @@ const LoginText = styled.div`
 `;
 
 const Line = styled.div`
-  width: 120px;
+  width: 118px;
   height: 1px;
   flex-shrink: 0;
-  background-color: #e4e4e4;
+  background-color: #6276d9;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #6276d9;
+  background-color: #e8ebfa;
   padding-top: 277.89px;
   align-items: center;
   width: 100%;
@@ -88,8 +104,8 @@ const Container = styled.div`
 `;
 
 const Short = styled.div`
-  margin-top: 13px;
-  color: #fff;
+  margin-top: 5px;
+  color: #6276d9;
   text-align: center;
   font-family: Pretendard;
   font-size: 15px;
