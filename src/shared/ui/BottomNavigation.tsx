@@ -18,7 +18,7 @@ const BottomNavigation = () => {
     <Wrapper>
       <BottomLink
         onClick={() => setActiveTab(1)}
-        to="/"
+        to="/home"
         $active={activeTab === Tab.HOME}
       >
         <IcHome $active={activeTab === Tab.HOME} />

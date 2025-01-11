@@ -1,17 +1,14 @@
-import BottomNavigation from "@shared/ui/BottomNavigation";
 import { Outlet } from "react-router";
 import styled from "styled-components";
 
-export default function RootLayout() {
+export default function AuthLayout() {
   return (
     <Wrapper>
-      <div style={{ flex: 1 }}>
-        <Outlet />
-      </div>
-      <BottomNavigation />
+      <Outlet />
     </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
