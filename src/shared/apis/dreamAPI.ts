@@ -38,7 +38,7 @@ const GetDreamList = async () => {
 
 const GetMyDreamList = async () => {
   try {
-    const response = await axiosInstance.get("/my-posts");
+    const response = await axiosInstance.get(`/my-posts`);
     return response.data;
   } catch (error) {
     console.log("꿈 목록 조회 API 연결 실패 에러", error);
@@ -54,13 +54,16 @@ const GetDreamDetail = async (id: number) => {
   }
 };
 
-const PatchSecret = async () => {
+const PatchSecret = async (id: number, open: boolean) => {
   try {
-    const response = await axiosInstance.patch(`/users/posts/open`);
-    //console.log("좋아요 성공 : ", response);
+    const response = await axiosInstance.patch(`/users/posts/open`, {
+      postId: id,
+      open,
+    });
+    //console.log("공개 여부 수정 성공 : ", response);
     return response.data;
   } catch (error) {
-    console.log("좋아요 API 실패 : ", error);
+    console.log("공개 여부 수정 API 실패 : ", error);
   }
 };
 
