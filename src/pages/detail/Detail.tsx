@@ -19,7 +19,7 @@ function Detail() {
 
   const handleClick = () => {
     //해몽 페이지 이동 변경
-    navigate("/");
+    navigate("/interpret");
   };
 
   const {
