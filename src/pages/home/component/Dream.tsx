@@ -1,7 +1,14 @@
 import styled from "styled-components";
+import Dream from "../../../shared/images/dream.svg?react";
+import { useNavigate } from "react-router-dom";
 
 const Dream = () => {
-  return <Container></Container>;
+  const navigate = useNavigate();
+  return (
+    <Container onClick={() => navigate("/")}>
+      <Dream />
+    </Container>
+  );
 };
 
 export default Dream;

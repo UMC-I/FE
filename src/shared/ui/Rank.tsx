@@ -14,14 +14,14 @@ interface IRankProps {
 const Rank = ({ rank, title, onClick, likedCount }: IRankProps) => {
   return (
     <Container onClick={onClick}>
-      {rank === 1 ? <OneIcon /> : ""}
-      {rank === 2 ? <TwoIcon /> : ""}
-      {rank === 3 ? <ThreeIcon /> : ""}
+      {rank === 1 && <OneIcon />}
+      {rank === 2 && <TwoIcon />}
+      {rank === 3 && <ThreeIcon />}
       <Title>{title}</Title>
-      <div>
+      <Flex>
         <HeartIcon />
         <Like>{likedCount}</Like>
-      </div>
+      </Flex>
     </Container>
   );
 };
@@ -36,7 +36,10 @@ const Container = styled.div`
   background: #fff;
   box-shadow: 0px 0.5px 2px 0px #b6b6b6 inset;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
+  padding: 0 10px;
 `;
 
 const Title = styled.p`
@@ -59,4 +62,9 @@ const Like = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  gap: 5px;
 `;
