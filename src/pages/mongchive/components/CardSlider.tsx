@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // 기본 Swiper 스타일
 import "swiper/css/effect-cards"; // EffectCards 스타일
@@ -37,7 +36,6 @@ const StyledSwiperSlide = styled(SwiperSlide)`
     background-color: #fdfdfd; /* 아주 살짝 어두운 흰색 */
   }
 `;
-
 export default function CardSlider() {
   return (
     <>
