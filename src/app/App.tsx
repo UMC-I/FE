@@ -4,7 +4,7 @@ import {
   AppThemeProvider,
   AppRouterProvider,
 } from "./providers";
-import { RankProvider } from "context/RankContext";
+import { RankProvider } from "../context/RankContext";
 
 function App() {
   return (
