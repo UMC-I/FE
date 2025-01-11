@@ -1,36 +1,37 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import path from "path";
+import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), svgr()],
   resolve: {
     alias: [
-      { find: '@', replacement: path.resolve(__dirname, 'src') },
+      { find: "@", replacement: path.resolve(__dirname, "src") },
       {
-        find: '@app',
-        replacement: path.resolve(__dirname, 'src/app'),
+        find: "@app",
+        replacement: path.resolve(__dirname, "src/app"),
       },
       {
-        find: '@pages',
-        replacement: path.resolve(__dirname, 'src/pages'),
+        find: "@pages",
+        replacement: path.resolve(__dirname, "src/pages"),
       },
       {
-        find: '@shared',
-        replacement: path.resolve(__dirname, 'src/shared'),
+        find: "@shared",
+        replacement: path.resolve(__dirname, "src/shared"),
       },
       {
-        find: '@icon',
-        replacement: path.resolve(__dirname, 'src/shared/assets/icon'),
+        find: "@icon",
+        replacement: path.resolve(__dirname, "src/shared/assets/icon"),
       },
       {
-        find: '@img',
-        replacement: path.resolve(__dirname, 'src/shared/assets/img'),
+        find: "@img",
+        replacement: path.resolve(__dirname, "src/shared/assets/img"),
       },
       {
-        find: '@home',
-        replacement: path.resolve(__dirname, 'src/pages/home'),
+        find: "@home",
+        replacement: path.resolve(__dirname, "src/pages/home"),
       },
     ],
   },
