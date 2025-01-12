@@ -1,4 +1,4 @@
-import { FontsTypes } from '@shared/types';
+import { FontsTypes } from "@shared/types";
 
 // const createFontStyle = (family: string, weight: number, size: number, lineHeight: number) => `
 //   font-family: "${family}";
