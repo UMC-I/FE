@@ -43,14 +43,17 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 const Img = styled.img<{ src: string }>`
-  margin-top: 80px;
   width: 350px;
   height: 350px;
 `;
 const BackImg = styled.img`
+  position: absolute;
+  top: 66px;
+  left: 30px;
   cursor: pointer;
 `;
 
